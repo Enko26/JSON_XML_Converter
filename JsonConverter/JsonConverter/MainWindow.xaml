@@ -1,0 +1,46 @@
+﻿<Window x:Class="JsonConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JsonConverter"
+        mc:Ignorable="d"
+        Icon="exeicon.png"
+        Title="Conventer" ResizeMode="NoResize"
+        Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+        WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}">
+            <!-- Diğer stil kodları -->
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Blue" Offset="0" />
+                        <GradientStop Color="DarkBlue" Offset="1" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="265*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <Label  HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Height="29" Width="188">Seçtiğiniz Dosya:</Label>
+        <Button x:Name="btnLoad" Content="Load Json Or XML" HorizontalAlignment="Left" Margin="124,25,0,0" VerticalAlignment="Top" Width="172" Click="btnLoad_Click" Height="48" RenderTransformOrigin="0.172,0.604"/>
+        <Label x:Name="lbLoadFile" Content="Label" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDownloadXML" Content="DOWNLOAD XML" HorizontalAlignment="Left" Margin="487,504,0,0" VerticalAlignment="Top" Width="135" Height="58" Click="btnDownloadXML_Click"/>
+        <Button x:Name="btnConvertJsonToXml" Content="Json To XML Convert" HorizontalAlignment="Left" Margin="571,170,0,0" VerticalAlignment="Top" Width="188" Height="63" Click="btnConvertJsonToXml_Click"/>
+        <ProgressBar Style="{StaticResource {x:Type ProgressBar}}" x:Name="ProgressBar" HorizontalAlignment="Left" Height="28" Margin="487,397,0,0" VerticalAlignment="Top" Width="358" Minimum="0" Maximum="100"/>
+
+        <ListBox x:Name="ListBox1" HorizontalAlignment="Left" Height="483" Margin="10,156,0,0" VerticalAlignment="Top" Width="407"/>
+        <ListBox x:Name="ListBox2" HorizontalAlignment="Left" Height="478" Margin="10,156,0,0" VerticalAlignment="Top" Width="406" Grid.Column="1"/>
+        <Label   x:Name="lbDegisen" Content="Dönüştürülen XML Dosyası :" HorizontalAlignment="Left" Margin="20,96,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="btnConvertXmlToJson" Content="XML To Json Convert" HorizontalAlignment="Left" Margin="571,263,0,0" VerticalAlignment="Top" Width="188" Height="67" Click="btnConvertXmlToJson_Click"/>
+        <Button x:Name="btnDownloadJson" Content="DOWNLOAD JSON" HorizontalAlignment="Left" Margin="701,504,0,0" VerticalAlignment="Top" Width="144" Height="58" Click="btnDownloadJson_Click"/>
+        <Label x:Name="lbConvertingFile" Content="Label" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+    </Grid>
+</Window>
